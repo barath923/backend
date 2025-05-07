@@ -1,0 +1,32 @@
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const { sql, connect } = require('./db');
+
+const app = express();
+const port = 3000;
+
+app.use(cors());
+app.use(bodyParser.json());
+
+connect(); // connect to DB at startup
+
+// Endpoint to handle user input from frontend
+app.post('/api/save', async (req, res) => {
+  const { name } = req.body;
+  if (!name) {
+    return res.status(400).json({ message: 'Name is required' });
+  }
+
+  try {
+    const result = await sql.query`INSERT INTO Users (Name) VALUES (${name})`;
+    res.json({ message: 'Name saved successfully' });
+  } catch (err) {
+    console.error('Insert error:', err);
+    res.status(500).json({ message: 'Database error' });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Backend API running on http://localhost:${port}`);
+});
