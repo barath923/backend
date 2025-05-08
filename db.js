@@ -1,10 +1,10 @@
 const sql = require('mssql');
 
 const config = {
-  user: 'your_sql_username',
-  password: 'your_sql_password',
-  server: 'your_sql_server.database.windows.net',
-  database: 'your_database_name',
+  user: 'sqladmin',
+  password: 'pa$$w0rd',
+  server: 'sql-primary-database-ramnewdb.database.windows.net',
+  database: 'db',
   options: {
     encrypt: true,
     enableArithAbort: true
