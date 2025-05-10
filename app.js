@@ -27,6 +27,6 @@ app.post('/api/save', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
+app.listen(port,'0.0.0.0', () => {
   console.log(`Backend API running on http://localhost:${port}`);
 });
