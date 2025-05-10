@@ -6,7 +6,8 @@ const { sql, connect } = require('./db');
 const app = express();
 const port = 3000;
 
-app.use(cors());
+app.use(cors({ origin: '*' }));
+// app.use(cors());
 app.use(bodyParser.json());
 
 connect(); // connect to DB at startup
