@@ -7,7 +7,7 @@ const app = express();
 const port = 3000;
 
 app.use(cors({
-  origin: 'http://4.213.117.194'
+  origin: '*'
 }));
 
 // app.use(cors());
