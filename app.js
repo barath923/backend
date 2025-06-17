@@ -32,5 +32,6 @@ app.post('/api/save', async (req, res) => {
 });
 
 app.listen(port,'0.0.0.0', () => {
-  console.log(`Backend API running on http://localhost:${port}`);
+  console.log(`Backend API running on port ${port}`);
+  console.log(`Accessible at http://192.168.2.4:${port} within the same VNet`);
 });
