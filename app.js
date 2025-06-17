@@ -7,7 +7,9 @@ const app = express();
 const port = 3000;
 
 app.use(cors({
-  origin: '*'
+  origin: '*',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type']   
 }));
 
 // app.use(cors());
